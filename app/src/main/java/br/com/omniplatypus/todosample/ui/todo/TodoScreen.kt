@@ -27,6 +27,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import br.com.omniplatypus.todosample.ui.app.TodoTopBar
 import br.com.omniplatypus.todosample.ui.theme.Green700
 import br.com.omniplatypus.todosample.ui.theme.TodoSampleTheme
 
@@ -38,6 +39,9 @@ fun TodoScreen(viewModel: TodoViewModel) {
                 isInAddMode = viewModel.addMode,
                 onClicked = viewModel::addButtonClicked
             )
+        },
+        topBar = {
+            TodoTopBar(viewModel = viewModel)
         }
     ) {
         LazyColumn {

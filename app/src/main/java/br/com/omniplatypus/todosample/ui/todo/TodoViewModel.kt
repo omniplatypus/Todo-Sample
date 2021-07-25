@@ -12,11 +12,11 @@ class TodoViewModel: ViewModel() {
     var todos: List<TodoItem> by mutableStateOf(listOf())
         private set
 
-    fun addItem(todo: TodoItem) {
+    fun addItem(vararg todo: TodoItem) {
         todos = todos + todo
     }
 
-    fun removeItem(todo: TodoItem) {
+    fun removeItem(vararg todo: TodoItem) {
         todos = todos - todo
     }
 

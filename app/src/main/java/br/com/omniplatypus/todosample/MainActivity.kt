@@ -6,7 +6,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import br.com.omniplatypus.todosample.ui.theme.TodoSampleTheme
@@ -44,6 +43,7 @@ private fun addBunchOfItems(viewModel: TodoViewModel) {
 @Composable
 fun DefaultPreview() {
     TodoSampleTheme {
-
+        val viewModel = TodoViewModel()
+        TodoScreen(viewModel = viewModel)
     }
 }

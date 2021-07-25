@@ -17,10 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Send
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -78,10 +75,10 @@ fun AddTodoButton(
 @Preview
 @Composable
 fun AddTodoButtonPreview() {
-    var addMode by mutableStateOf(false)
+    val addMode = remember { mutableStateOf(false) }
     AddTodoButton(
-        isInAddMode = addMode,
-        onClicked = { addMode = !addMode }
+        isInAddMode = addMode.value,
+        onClicked = { addMode.value = !addMode.value }
     )
 }
 
@@ -106,7 +103,7 @@ fun TodoTextInput(
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = {
                     onSendItem(todo)
-                    keyboardController?.hideSoftwareKeyboard()
+                    keyboardController?.hide()
                 }),
             )
 
